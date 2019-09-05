@@ -1,0 +1,26 @@
+version: "3.3"
+
+services:
+  postgres:
+    build: "./postgres"
+    ports:
+      - "5432"
+    environment:
+      POSTGRES_DB: "testdb"
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "12345"
+    restart: "always"
+
+  tree:
+    build: "./tree"
+    ports: 
+      - "5475:5475"
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "12345"
+      POSTGRES_DATABASE: "testdb"
+      POSTGRES_HOST: "postgres"
+      POSTGRES_PORT: 5432
+    restart: "always"
+    depends_on:
+      - postgres

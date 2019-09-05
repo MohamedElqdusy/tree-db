@@ -1,0 +1,58 @@
+### store node_0 root
+POST http://localhost:5475/node
+Content-Type: "application/json"
+
+{"id":0,"height":0,"content":"node_0","root":0, "parent":0, "path":"0,"}
+
+### store node_1
+POST http://localhost:5475/node
+Content-Type: "application/json"
+
+{"id":1,"height":0,"content":"node_1","root":0, "parent":0,"path":"0,1,"}
+
+### store node_2
+POST http://localhost:5475/node
+Content-Type: "application/json"
+
+{"id":2,"height":0,"content":"node_2","root":0, "parent":1,"path":"0,1,2,"}
+
+### store node_3
+POST http://localhost:5475/node
+Content-Type: "application/json"
+
+{"id":3,"height":0,"content":"node_3","root":0, "parent":1,"path":"0,1,3,"}
+
+### store node_4
+POST http://localhost:5475/node
+Content-Type: "application/json"
+
+{"id":4,"height":0,"content":"node_4","root":0, "parent":2,"path":"0,1,2,4,"}
+
+### store node_5
+POST http://localhost:5475/node
+Content-Type: "application/json"
+
+{"id":5,"height":0,"content":"node_5","root":0, "parent":2,"path":"0,1,2,5,"}
+
+### store node_6
+POST http://localhost:5475/node
+Content-Type: "application/json"
+
+{"id":6,"height":0,"content":"node_6","root":0, "parent":4,"path":"0,1,2,4,6,"}
+
+### store node_7
+POST http://localhost:5475/node
+Content-Type: "application/json"
+
+{"id":7,"height":0,"content":"node_7","root":0, "parent":5,"path":"0,1,2,5,7,"}
+
+### Get all the tree's nodes
+GET http://localhost:5475/nodechilds/0
+
+
+### change node 2 with new parent 3
+PUT http://localhost:5475/update/2/3
+Content-Type: "application/json"
+
+### get node 2 childs
+GET http://localhost:5475/nodechilds/2
