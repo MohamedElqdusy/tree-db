@@ -92,6 +92,7 @@ func StoreNode(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 	if err != nil {
 		logger.Error(err)
 		utils.WriteError(&w, err)
+		return
 	}
 
 	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
