@@ -12,7 +12,8 @@ type MockStore struct {
 }
 
 func (m *MockStore) StoreNode(ctx context.Context, node models.Node) error {
-	return repositoryImpl.StoreNode(ctx, node)
+	rets := m.Called()
+	return rets.Error(0)
 }
 
 func (m *MockStore) FindNodeChilds(ctx context.Context, id int) ([]models.Node, error) {
@@ -21,7 +22,8 @@ func (m *MockStore) FindNodeChilds(ctx context.Context, id int) ([]models.Node, 
 }
 
 func (m *MockStore) UpdateParent(ctx context.Context, nodeId int, parent int) error {
-	return repositoryImpl.UpdateParent(ctx, nodeId, parent)
+	rets := m.Called()
+	return rets.Error(0)
 }
 
 func (m *MockStore) Close() {
