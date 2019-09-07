@@ -31,6 +31,8 @@ func initiatPostgre() {
 	pc := config.IniatilizePostgreConfig()
 	postgersAddress := fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s sslmode=disable", pc.PostgresHost, pc.PostgresPort, pc.PostgresUser, pc.PostgresPassword, pc.PostgresDataBase)
 	repository, err := db.NewPostgre(postgersAddress)
-	logger.Error(err)
+	if err != nil {
+		logger.Error(err)
+	}
 	db.SetRepository(repository)
 }

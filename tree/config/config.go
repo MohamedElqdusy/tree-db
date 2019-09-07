@@ -17,6 +17,8 @@ type PostgreConfig struct {
 func IniatilizePostgreConfig() *PostgreConfig {
 	var p PostgreConfig
 	err := envconfig.Process("", &p)
-	logger.Error(err)
+	if err != nil {
+		logger.Error(err)
+	}
 	return &p
 }
